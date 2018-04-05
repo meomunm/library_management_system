@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="589.0" prefWidth="1106.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.Controller">
+    <children>
+        <Separator layoutX="259.0" orientation="VERTICAL" prefHeight="589.0" prefWidth="2.0" />
+        <Pane prefHeight="589.0" prefWidth="259.0" style="-fx-background-color: #36394B;">
+            <children>
+                <Label alignment="CENTER" layoutY="5.0" prefHeight="57.0" prefWidth="259.0" text="L I B R A R Y" textFill="WHITE">
+                    <font>
+                        <Font name="Century Gothic" size="24.0" />
+                    </font>
+                    <opaqueInsets>
+                        <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+                    </opaqueInsets>
+                </Label>
+                <Label alignment="CENTER" layoutY="56.0" prefHeight="31.0" prefWidth="259.0" text=" M A N A G E M E N T " textFill="WHITE">
+                    <font>
+                        <Font name="Century Gothic" size="24.0" />
+                    </font>
+                </Label>
+                <AnchorPane layoutX="-1.0" layoutY="117.0" prefHeight="473.0" prefWidth="259.0">
+                    <children>
+                        <Label layoutX="15.0" layoutY="20.0" text="Dashboard" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="15.0" />
+                            </font>
+                        </Label>
+                        <JFXButton alignment="CENTER" layoutX="-20.0" layoutY="49.0" onAction="#clickButtonAddLibraryCard" prefHeight="31.0" prefWidth="286.0" text="Add Library Card" textFill="#6b6f7e">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </JFXButton>
+                        <JFXButton alignment="CENTER" layoutX="-23.0" layoutY="85.0" prefHeight="31.0" prefWidth="286.0" text="Add New Book" textFill="#6b6f7e">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </JFXButton>
+                        <JFXButton alignment="CENTER" layoutX="-51.0" layoutY="121.0" prefHeight="31.0" prefWidth="312.0" text="Rent Book" textFill="#6b6f7e">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </JFXButton>
+                        <JFXButton alignment="CENTER" layoutX="-40.0" layoutY="161.0" prefHeight="31.0" prefWidth="301.0" text="Return Book" textFill="#6b6f7e">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </JFXButton>
+                        <Separator layoutX="17.0" layoutY="373.0" prefHeight="4.0" prefWidth="226.0" />
+                        <JFXButton alignment="CENTER" layoutX="-34.0" layoutY="388.0" prefHeight="31.0" prefWidth="301.0" text="Create Report" textFill="#6b6f7e">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </JFXButton>
+                        <ImageView fx:id="iv_add_lbrary_card" fitHeight="21.0" fitWidth="21.0" layoutX="37.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../res/ic_assignment_white_48dp_1x.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fx:id="iv_add_new_book" fitHeight="21.0" fitWidth="21.0" layoutX="37.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../res/ic_assignment_white_48dp_1x.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fx:id="iv_rent_book" fitHeight="21.0" fitWidth="21.0" layoutX="37.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../res/ic_assignment_white_48dp_1x.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fx:id="iv_return_book" fitHeight="21.0" fitWidth="21.0" layoutX="37.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../res/ic_assignment_white_48dp_1x.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fx:id="iv_create_report" fitHeight="21.0" fitWidth="21.0" layoutX="43.0" layoutY="393.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../res/ic_assignment_white_48dp_1x.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fx:id="iv_exit" fitHeight="21.0" fitWidth="21.0" layoutX="43.0" layoutY="429.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../res/ic_assignment_white_48dp_1x.png" />
+                            </image>
+                        </ImageView>
+                        <JFXButton alignment="CENTER" layoutX="-88.0" layoutY="424.0" onAction="#closeButtonAction" prefHeight="31.0" prefWidth="348.0" text="Exit" textFill="#6b6f7e">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </JFXButton>
+                        <JFXButton alignment="CENTER" layoutX="1.0" layoutY="200.0" prefHeight="31.0" prefWidth="259.0" text="Create Fines Ticket" textFill="#6b6f7e">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </JFXButton>
+                        <ImageView fx:id="iv_create_fines_ticket" fitHeight="21.0" fitWidth="21.0" layoutX="37.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../res/ic_assignment_white_48dp_1x.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </AnchorPane>
+            </children>
+        </Pane>
+        <Pane layoutX="262.0" prefHeight="57.0" prefWidth="854.0">
+            <children>
+                <JFXButton fx:id="bt_back_main" alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="9.0" onAction="#setOnClickBack" prefHeight="39.0" prefWidth="101.0" text="Back" textFill="#36394b">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </JFXButton>
+                <ImageView fx:id="iv_back" fitHeight="37.0" fitWidth="32.0" layoutX="36.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../res/chevron-left.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </Pane>
+        <BorderPane fx:id="border_pane_layout" layoutX="259.0" layoutY="57.0" prefHeight="532.0" prefWidth="854.0" style="-fx-background-color: #D8D3D9;" />
+    </children>
+</AnchorPane>
