@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="532.0" prefWidth="854.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.ControllerFragmentBooksDatabase">
+   <children>
+      <TableView fx:id="table_book" prefHeight="532.0" prefWidth="854.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columns>
+          <TableColumn fx:id="id_book_colum" prefWidth="65.0" text="ID Book" />
+          <TableColumn fx:id="name_book_colum" prefWidth="173.0" text="Name of Book" />
+            <TableColumn fx:id="category_book_colum" prefWidth="169.0" text="Category of Book" />
+            <TableColumn fx:id="cost_book_colum" prefWidth="107.0" text="Cost of Book" />
+            <TableColumn fx:id="author_book_colum" prefWidth="122.0" text="Author book" />
+            <TableColumn fx:id="total_book_colum" prefWidth="100.0" text="Total of Book" />
+            <TableColumn fx:id="date_add_book_colum" prefWidth="117.0" text="Date add book" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

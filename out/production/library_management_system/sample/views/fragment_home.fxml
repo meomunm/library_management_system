@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="532.0" prefWidth="854.0" style="-fx-background-color: #D8D3D9;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.ControllerFragmentHome">
+   <children>
+      <Pane layoutX="29.0" layoutY="79.0" prefHeight="136.0" prefWidth="242.0" style="-fx-background-color: white; -fx-background-radius: 5;">
+         <children>
+            <Pane layoutX="14.0" layoutY="-36.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #fb8c00; -fx-background-radius: 5;">
+               <effect>
+                  <Glow>
+                     <input>
+                        <DropShadow color="#0000007d" />
+                     </input>
+                  </Glow>
+               </effect>
+               <children>
+                  <ImageView fx:id="iv_logo1" fitHeight="53.0" fitWidth="53.0" layoutX="24.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../res/user_library_card.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Separator layoutX="21.0" layoutY="94.0" prefWidth="200.0" />
+            <Label layoutX="152.0" layoutY="14.0" text="Table Name" textFill="#d8d3d9">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="48.0" layoutY="103.0" text="View Table" textFill="#d8d3d9">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="iv_sub_logo1" fitHeight="27.0" fitWidth="28.0" layoutX="21.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../res/view_table.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="149.0" layoutY="48.0" text="Library Card">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="306.0" layoutY="79.0" prefHeight="136.0" prefWidth="242.0" style="-fx-background-color: white; -fx-background-radius: 5;">
+         <children>
+            <Pane layoutX="14.0" layoutY="-36.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #43a047; -fx-background-radius: 5;">
+               <effect>
+                  <Glow>
+                     <input>
+                        <DropShadow color="#0000007d" />
+                     </input>
+                  </Glow>
+               </effect>
+               <children>
+                  <ImageView fx:id="iv_logo2" fitHeight="53.0" fitWidth="53.0" layoutX="24.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../res/books.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Separator layoutX="21.0" layoutY="94.0" prefWidth="200.0" />
+            <Label layoutX="152.0" layoutY="14.0" text="Table Name" textFill="#d8d3d9">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="48.0" layoutY="103.0" text="View Table" textFill="#d8d3d9">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="iv_sub_logo2" fitHeight="27.0" fitWidth="28.0" layoutX="21.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../res/view_table.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="183.0" layoutY="44.0" text="Books">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="585.0" layoutY="79.0" prefHeight="136.0" prefWidth="242.0" style="-fx-background-color: white; -fx-background-radius: 5;">
+         <children>
+            <Pane layoutX="14.0" layoutY="-36.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #2962FF; -fx-background-radius: 5;">
+               <effect>
+                  <Glow level="0.03">
+                     <input>
+                        <DropShadow color="#0000007d" />
+                     </input>
+                  </Glow>
+               </effect>
+               <children>
+                  <ImageView fx:id="iv_logo3" fitHeight="53.0" fitWidth="53.0" layoutX="24.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../res/rent_book.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Separator layoutX="21.0" layoutY="94.0" prefWidth="200.0" />
+            <Label layoutX="152.0" layoutY="14.0" text="Table Name" textFill="#d8d3d9">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="48.0" layoutY="103.0" text="View Table" textFill="#d8d3d9">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="iv_sub_logo3" fitHeight="27.0" fitWidth="28.0" layoutX="21.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../res/view_table.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="150.0" layoutY="44.0" text="Rent Book">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="area_click_library_card" layoutX="19.0" layoutY="36.0" prefHeight="188.0" prefWidth="260.0" />
+      <Pane fx:id="area_click_books" layoutX="297.0" layoutY="37.0" prefHeight="188.0" prefWidth="260.0" />
+      <Pane fx:id="area_click_rent_book" layoutX="576.0" layoutY="37.0" prefHeight="188.0" prefWidth="260.0" />
+      <Pane layoutX="29.0" layoutY="321.0" prefHeight="136.0" prefWidth="242.0" style="-fx-background-color: white; -fx-background-radius: 5;">
+         <children>
+            <Pane layoutX="14.0" layoutY="-36.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #e71a1a; -fx-background-radius: 5;">
+               <effect>
+                  <Glow level="0.03">
+                     <input>
+                        <DropShadow color="#0000007d" />
+                     </input>
+                  </Glow>
+               </effect>
+               <children>
+                  <ImageView fx:id="iv_logo_banned" fitHeight="53.0" fitWidth="53.0" layoutX="24.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../res/ban.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Separator layoutX="21.0" layoutY="94.0" prefWidth="200.0" />
+            <Label layoutX="152.0" layoutY="14.0" text="Table Name" textFill="#d8d3d9">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="48.0" layoutY="103.0" text="View Table" textFill="#d8d3d9">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="iv_sublogo_banned" fitHeight="27.0" fitWidth="28.0" layoutX="21.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../res/view_table.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="150.0" layoutY="44.0" text="Banned List">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="area_click_banned" layoutX="29.0" layoutY="280.0" prefHeight="188.0" prefWidth="260.0" />
+      <Pane layoutX="306.0" layoutY="321.0" prefHeight="136.0" prefWidth="242.0" style="-fx-background-color: white; -fx-background-radius: 5;">
+         <children>
+            <Pane layoutX="14.0" layoutY="-36.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #8d3aa4; -fx-background-radius: 5;">
+               <effect>
+                  <Glow level="0.03">
+                     <input>
+                        <DropShadow color="#0000007d" />
+                     </input>
+                  </Glow>
+               </effect>
+               <children>
+                  <ImageView fx:id="iv_logo_chart" fitHeight="53.0" fitWidth="53.0" layoutX="24.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../res/chart.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Separator layoutX="21.0" layoutY="94.0" prefWidth="200.0" />
+            <Label layoutX="152.0" layoutY="14.0" text="Table Name" textFill="#d8d3d9">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="48.0" layoutY="103.0" text="View Table" textFill="#d8d3d9">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="iv_sublogo_chart" fitHeight="27.0" fitWidth="28.0" layoutX="21.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../res/view_table.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="150.0" layoutY="44.0" text="Chart Table">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="area_click_chart" layoutX="297.0" layoutY="280.0" prefHeight="188.0" prefWidth="260.0" />
+   </children>
+</AnchorPane>

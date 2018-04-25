@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
@@ -52,50 +53,38 @@ public class Controller {
     @FXML
     private JFXButton bt_back_main;
 
+    @FXML
+    private Label lb_main;
+
+    public static Label clone_lbMain;
+
     //clone biến -> passing data another class
     static BorderPane border_clone = null;
     static ImageView iv_back_clone = null;
     static JFXButton bt_back_clone = null;
 
-    @FXML
-        //handle event button -> exit program
-    void closeButtonAction(ActionEvent event) {
-        Platform.exit();
-    }
-
-    @FXML
-    void clickButtonAddLibraryCard(ActionEvent event) {
-        try {
-            //getClass khac Main.getClass -> ly do bi null
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("views/form_add_library_card.fxml"));
-            Parent root1 = fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL); //Khoa window truoc do, ko the tuong tac den khi close window hien tai
-            stage.setResizable(false);
-            stage.initStyle(StageStyle.UNDECORATED);
-            stage.setScene(new Scene(root1));
-            stage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    void setOnClickBack(ActionEvent event) {
-        Util.loadUI("layout_home.fxml", border_pane_layout);
-    }
-
-
+    //tương tự hàm onCreate trong Android
     public void initialize() {
-        cloneVar();
-        Util.loadUI("layout_home.fxml", border_pane_layout);
+        lb_main.setVisible(false);
+        clone_lbMain = lb_main;
+        cloneBorderPane();
+        Util.loadUI("fragment_home.fxml", border_pane_layout);
 
         bt_back_main.setVisible(false); //hide button back
         iv_back.setVisible(false);      //hide image back
         initData();
     }
 
+    //xoá hàm này code ko chạy
+    private void cloneBorderPane() {
+        //nếu xóa thì code ko chạy, ko biết vì sao nhưng phải tạo 1 biến clone của
+        // Border Pane thì mới setScene đc cho nó
+        border_clone = border_pane_layout;
+        iv_back_clone = iv_back;
+        bt_back_clone = bt_back_main;
+    }
+
+    //initdata
     private void initData() {
         //setup ảnh cho icon
         iv_create_fines_ticket.setImage(Util.getImage("fines_ticket.png"));
@@ -109,9 +98,45 @@ public class Controller {
         System.out.println("done done");
     }
 
-    private void cloneVar(){
-        border_clone = border_pane_layout;
-        iv_back_clone = iv_back;
-        bt_back_clone = bt_back_main;
+    @FXML
+    void clickButtonAddLibraryCard(ActionEvent event) {
+        Util.createForm("form_add_library_card.fxml");
+    }
+
+
+    @FXML
+    void clickButtonAddNewBook(ActionEvent event) {
+        Util.createForm("form_add_book.fxml");
+    }
+
+    @FXML
+    void clickButtonCreateFinesTicket(ActionEvent event) {
+        Util.createForm("form_create_fines_ticket.fxml");
+    }
+
+    @FXML
+    void clickButtonCreateReport(ActionEvent event) {
+
+    }
+
+    @FXML
+    void clickButtonRentBook(ActionEvent event) {
+        Util.createForm("form_rent_book.fxml");
+    }
+
+    @FXML
+    void clickButtonReturnBook(ActionEvent event) {
+        Util.createForm("form_return_book.fxml");
+    }
+
+    @FXML
+        //handle event button -> exit program
+    void closeButtonAction(ActionEvent event) {
+        Platform.exit();
+    }
+
+    @FXML
+    void setOnClickBack(ActionEvent event) {
+        Util.loadUI("fragment_home.fxml", border_pane_layout);
     }
 }

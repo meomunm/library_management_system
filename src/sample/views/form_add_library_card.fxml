@@ -11,32 +11,43 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.ControllerFormAddLibraryCard">
-   <children>
-      <Pane layoutY="-8.0" prefHeight="103.0" prefWidth="400.0" style="-fx-background-color: #36394B;">
-         <children>
-            <ImageView fx:id="iv_icon_form" fitHeight="30.0" fitWidth="30.0" layoutX="185.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../res/user_library_card.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="109.0" layoutY="55.0" text="Add library card" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="24.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-      <JFXTextField layoutX="27.0" layoutY="118.0" prefHeight="35.0" prefWidth="347.0" promptText="ID Library card" />
-      <JFXTextField layoutX="27.0" layoutY="173.0" prefHeight="35.0" prefWidth="347.0" promptText="Full Name" />
-      <JFXTextField layoutX="27.0" layoutY="234.0" prefHeight="35.0" prefWidth="347.0" promptText="Email" />
-      <JFXButton fx:id="bt_cancel_add_library_card" layoutX="200.0" layoutY="537.0" onAction="#setOnClickCancel" prefHeight="35.0" prefWidth="85.0" text="Cancel">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </JFXButton>
-      <JFXButton layoutX="285.0" layoutY="537.0" prefHeight="35.0" prefWidth="85.0" style="-fx-background-color: #36394B;" text="Submit" textFill="WHITE" />
-      <JFXDatePicker layoutX="27.0" layoutY="300.0" prefHeight="35.0" prefWidth="347.0" promptText="Date of Birth" />
-      <JFXComboBox layoutX="27.0" layoutY="358.0" prefHeight="35.0" prefWidth="347.0" promptText="Type Library card" />
-   </children>
+<AnchorPane prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/9.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.ControllerFormAddLibraryCard">
+    <children>
+        <Pane layoutY="-8.0" prefHeight="103.0" prefWidth="400.0" style="-fx-background-color: #36394B;">
+            <children>
+                <ImageView fx:id="iv_icon_form" fitHeight="30.0" fitWidth="30.0" layoutX="185.0" layoutY="22.0"
+                           pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../res/user_library_card.png"/>
+                    </image>
+                </ImageView>
+                <Label layoutX="109.0" layoutY="55.0" text="Add library card" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="24.0"/>
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+        <JFXTextField fx:id="tf_libraryCard" layoutX="27.0" layoutY="118.0" prefHeight="35.0" prefWidth="347.0"
+                      promptText="ID Library card"/>
+        <JFXTextField fx:id="tf_fullName" layoutX="27.0" layoutY="173.0" prefHeight="35.0" prefWidth="347.0"
+                      promptText="Full Name"/>
+        <JFXTextField fx:id="tf_email" layoutX="27.0" layoutY="228.0" prefHeight="35.0" prefWidth="347.0"
+                      promptText="Email"/>
+        <JFXButton fx:id="bt_cancel_add_library_card" layoutX="200.0" layoutY="537.0" onAction="#setOnClickCancel"
+                   prefHeight="35.0" prefWidth="85.0" text="Cancel">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </JFXButton>
+        <JFXButton fx:id="bt_submit" layoutX="285.0" layoutY="537.0" onAction="#setOnClickSubmit" prefHeight="35.0"
+                   prefWidth="85.0" style="-fx-background-color: #36394B;" text="Submit" textFill="WHITE"/>
+        <JFXDatePicker fx:id="dp_date" layoutX="27.0" layoutY="335.0" prefHeight="35.0" prefWidth="347.0"
+                       promptText="Date of Birth"/>
+        <JFXComboBox fx:id="cb_typeLibraryCard" layoutX="27.0" layoutY="389.0" prefHeight="35.0" prefWidth="347.0"
+                     promptText="Type Library card"/>
+        <JFXTextField fx:id="tf_address" layoutX="27.0" layoutY="283.0" prefHeight="35.0" prefWidth="347.0"
+                      promptText="Address"/>
+    </children>
 </AnchorPane>

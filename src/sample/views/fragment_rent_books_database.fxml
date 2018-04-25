@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="532.0" prefWidth="854.0" xmlns="http://javafx.com/javafx/9.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.ControllerFragmentRentBookDatabase">
+    <children>
+        <TableView fx:id="table_rent_book" prefHeight="532.0" prefWidth="854.0" AnchorPane.bottomAnchor="0.0"
+                   AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <columns>
+                <TableColumn fx:id="tc_idRentBook" prefWidth="155.0" text="ID Transaction"/>
+                <TableColumn fx:id="tc_renterName" prefWidth="188.0" text="Renter Name"/>
+                <TableColumn fx:id="tc_nameOfBook" prefWidth="379.0" text="Name of Book"/>
+                <TableColumn fx:id="tc_dateOfRent" prefWidth="131.0" text="Date of Rent"/>
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>

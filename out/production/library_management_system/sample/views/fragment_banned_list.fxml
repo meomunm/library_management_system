@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="532.0" prefWidth="854.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.ControllerFragmentBannedList">
+    <children>
+        <TableView fx:id="tv_banned_list" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <columns>
+                <TableColumn fx:id="tc_idRentBook" prefWidth="198.0" text="ID Library Card" />
+                <TableColumn fx:id="tc_name_library" prefWidth="350.0" text="Name of Library Card" />
+                <TableColumn fx:id="tc_date_banned" prefWidth="305.0" text="Date of Banned" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>
