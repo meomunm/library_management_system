@@ -1,6 +1,6 @@
 # Project Library Management System
 
-My homework Javafx
+My homework Javafx.
 This litte library management software using JavaFx.
 It uses [Java 9](http://www.oracle.com/technetwork/java/javase/downloads/index.html), [SQLite](http://sqlitebrowser.org/) and  [JFoenix](https://github.com/jfoenixadmin/JFoenix).
 
