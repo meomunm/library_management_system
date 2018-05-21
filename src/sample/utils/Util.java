@@ -20,7 +20,8 @@ import java.util.regex.Pattern;
 
 public class Util {
     public static Image getImage(String path) {
-        return new Image("file:res/" + path);
+        return new Image("file:src/sample/res/" + path);
+        //return new Image("file:res/" + path);
     }
 
     public static void loadUI(String fileName, BorderPane layout) {

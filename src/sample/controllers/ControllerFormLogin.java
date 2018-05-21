@@ -77,20 +77,10 @@ public class ControllerFormLogin {
         tf_username.setStyle("-fx-text-inner-color:  #263238;");
         tf_password.setStyle("-fx-text-inner-color:  #263238;");
 
-        iv_close.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                close_form();
-            }
-        });
-        
+        iv_close.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> close_form());
+
         //used pane handle event click
-        pane_forgotPassword.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                DialogWarning.createNewDialog("Cooming soon!");
-            }
-        });
+        pane_forgotPassword.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> DialogWarning.createNewDialog("Cooming soon!"));
 
     }
 }

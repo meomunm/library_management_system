@@ -11,7 +11,6 @@ import sample.models.BannedListModel;
 
 public class ControllerFragmentBannedList {
 
-
     @FXML
     private TableView<BannedListModel> tv_banned_list;
 

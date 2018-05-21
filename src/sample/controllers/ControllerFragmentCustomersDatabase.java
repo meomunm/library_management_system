@@ -1,13 +1,18 @@
 package sample.controllers;
 
+import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import sample.adatper_database.SQLiteConnector;
 import sample.models.CustomerModel;
+
+import java.util.function.Predicate;
 
 public class ControllerFragmentCustomersDatabase {
     ObservableList<CustomerModel> listCustomer;
@@ -38,6 +43,11 @@ public class ControllerFragmentCustomersDatabase {
     @FXML
     private TableColumn<CustomerModel, String> type_column;
 
+    private FilteredList<CustomerModel> filterData;
+
+    @FXML
+    private JFXTextField tf_search;
+
     public void initialize() {
         Controller.clone_lbMain.setVisible(true);
         Controller.clone_lbMain.setText("Library Card");
@@ -45,6 +55,8 @@ public class ControllerFragmentCustomersDatabase {
 
         Controller.bt_back_clone.setVisible(true); //show button back and image back
         Controller.iv_back_clone.setVisible(true); //show button back and image back
+
+
         setupDataForTableView(); //init data
     }
 
@@ -59,14 +71,49 @@ public class ControllerFragmentCustomersDatabase {
         address_column.setCellValueFactory(new PropertyValueFactory<CustomerModel, String>("address_cus"));
         type_column.setCellValueFactory(new PropertyValueFactory<CustomerModel, String>("type_cus"));
 
-        //fill data vào tableview
-        //ObservableList<CustomerModel>
+        this.filterData();
+
         listCustomer = getListCustomer();
+        //fill data vào tableview
         table_customer.setItems(listCustomer);
     }
 
     private ObservableList<CustomerModel> getListCustomer() {
         return FXCollections.observableArrayList(SQLiteConnector
                 .getInstanceSQLiteConnector().getAllCustomer()); //fill list customer vào ObservableList
+    }
+
+    private void filterData(){
+        filterData = new FilteredList<>(getListCustomer(), model -> false);
+
+        tf_search.textProperty().addListener((observable, oldValue, newValue ) -> {
+            filterData.setPredicate(model ->{
+                if (newValue == null || newValue.isEmpty()){
+                    return true;
+                }
+
+                // Compare first name and last name of every person with filter text.
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                //true  = match
+                if (model.getId_cus().toLowerCase().contains(lowerCaseFilter)){
+                    return true;
+                }else if (model.getName_cus().toLowerCase().contains(lowerCaseFilter)){
+                    return true;
+                }else if (model.getAddress_cus().toLowerCase().contains(lowerCaseFilter)){
+                    return true;
+                }else if (model.getBorn_date_cus().toLowerCase().contains(lowerCaseFilter)){
+                    return true;
+                }else if (model.getMail_cus().toLowerCase().contains(lowerCaseFilter)){
+                    return true;
+                }
+
+                return false; //filter do not match
+            });
+
+            SortedList<CustomerModel> sortedData = new SortedList<>(filterData);
+            sortedData.comparatorProperty().bind(table_customer.comparatorProperty());
+            table_customer.setItems(sortedData);
+        });
     }
 }

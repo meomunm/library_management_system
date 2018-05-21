@@ -1,6 +1,6 @@
 package sample.models;
 
-public class BannedListModel {
+public class BannedListModel{
     private String idLibraryCard;
     private String nameOfLibraryCard;
     private String dateofBannedList;

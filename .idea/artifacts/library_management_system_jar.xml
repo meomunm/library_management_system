@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="library_management_system:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/library_management_system_jar</output-path>
+    <root id="archive" name="library_management_system.jar">
+      <element id="module-output" name="library_management_system" />
+      <element id="extracted-dir" path="I:/Downloads/sqlite-jdbc-3.21.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="I:/Downloads/jfoenix-9.0.1.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

@@ -1,13 +1,17 @@
 package sample.controllers;
 
+import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import sample.adatper_database.SQLiteConnector;
 import sample.models.BookModel;
+import sample.models.CustomerModel;
 
 import java.util.List;
 
@@ -38,11 +42,19 @@ public class ControllerFragmentBooksDatabase {
     @FXML
     private TableColumn<BookModel, String> date_add_book_colum;
 
+    private FilteredList<BookModel> filterData;
+
+    @FXML
+    private JFXTextField tf_search;
+
     public void initialize(){
         Controller.clone_lbMain.setVisible(true);
         Controller.clone_lbMain.setText("List Book");
         Controller.bt_back_clone.setVisible(true); //show button back and image back
         Controller.iv_back_clone.setVisible(true); //show button back and image back
+
+        this.filterData();
+
         setupDataForTableView(); //init data
     }
 
@@ -63,4 +75,37 @@ public class ControllerFragmentBooksDatabase {
         return FXCollections.observableArrayList(SQLiteConnector.getInstanceSQLiteConnector().getAllBook());
     }
 
+    private void filterData(){
+        filterData = new FilteredList<>(getListBook(), model -> true);
+
+        tf_search.textProperty().addListener((observable, oldValue, newValue ) -> {
+            filterData.setPredicate(model ->{
+                if (newValue == null || newValue.isEmpty()){
+                    return true;
+                }
+
+                // Compare first name and last name of every person with filter text.
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                //true  = match
+                if (model.getId_book().toLowerCase().contains(lowerCaseFilter)){
+                    return true;
+                }else if (model.getName_book().toLowerCase().contains(lowerCaseFilter)){
+                    return true;
+                }else if (model.getAuthor_book().toLowerCase().contains(lowerCaseFilter)){
+                    return true;
+                }else if (model.getDate_add_book().toLowerCase().contains(lowerCaseFilter)){
+                    return true;
+                }else if (model.getCategory_book().toLowerCase().contains(lowerCaseFilter)){
+                    return true;
+                }
+
+                return false; //filter do not match
+            });
+
+            SortedList<BookModel> sortedData = new SortedList<>(filterData);
+            sortedData.comparatorProperty().bind(table_book.comparatorProperty());
+            table_book.setItems(sortedData);
+        });
+    }
 }
