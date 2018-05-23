@@ -5,12 +5,15 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import sample.adatper_database.SQLiteConnector;
 import sample.models.CustomerModel;
+import sample.utils.Algorithms;
+import sample.utils.DialogWarning;
 
 import java.util.function.Predicate;
 
@@ -83,12 +86,12 @@ public class ControllerFragmentCustomersDatabase {
                 .getInstanceSQLiteConnector().getAllCustomer()); //fill list customer vào ObservableList
     }
 
-    private void filterData(){
+    private void filterData() {
         filterData = new FilteredList<>(getListCustomer(), model -> false);
 
-        tf_search.textProperty().addListener((observable, oldValue, newValue ) -> {
-            filterData.setPredicate(model ->{
-                if (newValue == null || newValue.isEmpty()){
+        tf_search.textProperty().addListener((observable, oldValue, newValue) -> {
+            filterData.setPredicate(model -> {
+                if (newValue == null || newValue.isEmpty()) {
                     return true;
                 }
 
@@ -96,15 +99,15 @@ public class ControllerFragmentCustomersDatabase {
                 String lowerCaseFilter = newValue.toLowerCase();
 
                 //true  = match
-                if (model.getId_cus().toLowerCase().contains(lowerCaseFilter)){
+                if (model.getId_cus().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
-                }else if (model.getName_cus().toLowerCase().contains(lowerCaseFilter)){
+                } else if (model.getName_cus().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
-                }else if (model.getAddress_cus().toLowerCase().contains(lowerCaseFilter)){
+                } else if (model.getAddress_cus().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
-                }else if (model.getBorn_date_cus().toLowerCase().contains(lowerCaseFilter)){
+                } else if (model.getBorn_date_cus().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
-                }else if (model.getMail_cus().toLowerCase().contains(lowerCaseFilter)){
+                } else if (model.getMail_cus().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
                 }
 
@@ -115,5 +118,22 @@ public class ControllerFragmentCustomersDatabase {
             sortedData.comparatorProperty().bind(table_customer.comparatorProperty());
             table_customer.setItems(sortedData);
         });
+    }
+
+
+    @FXML
+    void delete_rowTable(ActionEvent event) {
+        //delete item selected
+        CustomerModel modelItemSelected = table_customer.getSelectionModel().getSelectedItem();
+
+        if (Algorithms.isBanned(SQLiteConnector.getInstanceSQLiteConnector().getAllBannedList(), modelItemSelected.getId_cus())) {
+            DialogWarning.createNewDialog("The user being banned can not be deleted.");
+        } else if (Algorithms.isCustomerRentingBook(SQLiteConnector.getInstanceSQLiteConnector().getAllRenterBook(), modelItemSelected.getId_cus())) {
+            DialogWarning.createNewDialog("The user being rented book can not be deleted.");
+        } else {
+            table_customer.getItems().remove(modelItemSelected);
+            SQLiteConnector.getInstanceSQLiteConnector().deleteCustomerBindID(modelItemSelected.getId_cus());
+            System.out.println(TAG + "- delete_rowTable(): deleted user");
+        }
     }
 }

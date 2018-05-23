@@ -142,8 +142,8 @@ public class SQLiteConnector {
         }
     }
 
-    public void deleteRentBookID(String id){
-            String query = String.format("DELETE FROM rent_book\n" +
+    public void deleteRentBookID(String id) {
+        String query = String.format("DELETE FROM rent_book\n" +
                 "WHERE `id_rent_book` = \"%s\"", id);
         try {
             statement.executeUpdate(query);
@@ -152,7 +152,27 @@ public class SQLiteConnector {
         }
     }
 
-    public List<BannedListModel> getAllBannedList(){
+    public void deleteCustomerBindID(String id) {
+        String query = String.format("DELETE FROM customers\n" +
+                "WHERE `id_cus` = \"%s\"", id);
+        try {
+            statement.executeUpdate(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteBookWithID(String id) {
+        String query = String.format("DELETE FROM books\n" +
+                "WHERE `id_book` = \"%s\"", id);
+        try {
+            statement.executeUpdate(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public List<BannedListModel> getAllBannedList() {
         List<BannedListModel> list = new ArrayList<>();
         try {
             ResultSet rs = statement.executeQuery("select * from banned_list");
@@ -171,7 +191,7 @@ public class SQLiteConnector {
         return list;
     }
 
-    public void insertToBannedList(String id, String name, String date_banned){
+    public void insertToBannedList(String id, String name, String date_banned) {
         try {
             String query = String.format(
                     "INSERT INTO banned_list (id_cus, name_cus, date_banned)" +

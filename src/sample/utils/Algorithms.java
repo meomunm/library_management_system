@@ -76,7 +76,7 @@ public class Algorithms {
         return null; //ko tìm thấy phần tử
     }
 
-    public static RentBookModel searchRentBook(List<RentBookModel> list, String data) {
+    public static RentBookModel searchRentBook(List<RentBookModel> list, String keyword) {
         list.sort(new Comparator<RentBookModel>() {
             @Override
             public int compare(RentBookModel o1, RentBookModel o2) {
@@ -89,9 +89,9 @@ public class Algorithms {
         int mid;
         while (low <= high) {
             mid = (low + high) / 2;
-            if (list.get(mid).getIdRentBook().compareTo(data) < 0) {
+            if (list.get(mid).getIdRentBook().compareTo(keyword) < 0) {
                 low = mid + 1;
-            } else if (list.get(mid).getIdRentBook().compareTo(data) > 0) {
+            } else if (list.get(mid).getIdRentBook().compareTo(keyword) > 0) {
                 high = mid - 1;
             } else {
                 return list.get(mid);
@@ -100,16 +100,48 @@ public class Algorithms {
         return null;
     }
 
-    public static boolean isBanned(List<BannedListModel> list, String id){
-        list.sort(new Comparator<BannedListModel>() {
-            @Override
-            public int compare(BannedListModel o1, BannedListModel o2) {
-                return o1.getIdLibraryCard().compareTo(o2.getIdLibraryCard());
-            }
-        });
+    public static boolean isBanned(List<BannedListModel> list, String keyword){
+//        list.sort(new Comparator<BannedListModel>() {
+//            @Override
+//            public int compare(BannedListModel o1, BannedListModel o2) {
+//                return o1.getIdLibraryCard().compareTo(o2.getIdLibraryCard());
+//            }
+//        });
 
         for (BannedListModel model :list) {
-            if (model.getIdLibraryCard().equals(id)){
+            if (model.getIdLibraryCard().equals(keyword)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean isCustomerRentingBook(List<RentBookModel>list, String IDkeyword){
+//        list.sort(new Comparator<RentBookModel>() {
+//            @Override
+//            public int compare(RentBookModel o1, RentBookModel o2) {
+//                return o1.getIdCustomer().compareTo(o2.getIdCustomer());
+//            }
+//        });
+
+        for (RentBookModel model: list){
+            if (model.getIdCustomer().equals(IDkeyword)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean isBookOnRentBookList(List<RentBookModel> list, String IDBook){
+//        list.sort(new Comparator<RentBookModel>() {
+//            @Override
+//            public int compare(RentBookModel o1, RentBookModel o2) {
+//                return o1.getIdBook().compareTo(o2.getIdBook());
+//            }
+//        });
+
+        for (RentBookModel model: list){
+            if (model.getIdBook().equals(IDBook)){
                 return true;
             }
         }

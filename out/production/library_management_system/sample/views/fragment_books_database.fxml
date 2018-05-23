@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="532.0" prefWidth="854.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.ControllerFragmentBooksDatabase">
+<AnchorPane onDragDetected="#deleteBookWithID" prefHeight="532.0" prefWidth="854.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.ControllerFragmentBooksDatabase">
    <children>
       <TableView fx:id="table_book" layoutY="48.0" prefHeight="484.0" prefWidth="854.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="48.0">
         <columns>
@@ -19,5 +20,6 @@
         </columns>
       </TableView>
       <JFXTextField fx:id="tf_search" layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="351.0" promptText="Search" />
+      <JFXButton layoutX="427.0" layoutY="14.0" onAction="#deleteBookWithID" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #36394B;" text="DELETE" textFill="WHITE" />
    </children>
 </AnchorPane>

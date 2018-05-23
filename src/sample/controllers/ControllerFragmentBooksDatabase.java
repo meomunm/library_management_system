@@ -5,6 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -12,6 +13,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import sample.adatper_database.SQLiteConnector;
 import sample.models.BookModel;
 import sample.models.CustomerModel;
+import sample.utils.Algorithms;
+import sample.utils.DialogWarning;
 
 import java.util.List;
 
@@ -37,7 +40,7 @@ public class ControllerFragmentBooksDatabase {
     private TableColumn<BookModel, String> author_book_colum;
 
     @FXML
-    private TableColumn<BookModel, String>  total_book_colum;
+    private TableColumn<BookModel, String> total_book_colum;
 
     @FXML
     private TableColumn<BookModel, String> date_add_book_colum;
@@ -47,7 +50,7 @@ public class ControllerFragmentBooksDatabase {
     @FXML
     private JFXTextField tf_search;
 
-    public void initialize(){
+    public void initialize() {
         Controller.clone_lbMain.setVisible(true);
         Controller.clone_lbMain.setText("List Book");
         Controller.bt_back_clone.setVisible(true); //show button back and image back
@@ -58,7 +61,7 @@ public class ControllerFragmentBooksDatabase {
         setupDataForTableView(); //init data
     }
 
-    private void setupDataForTableView(){
+    private void setupDataForTableView() {
         id_book_colum.setCellValueFactory(new PropertyValueFactory<BookModel, String>("id_book"));
         name_book_colum.setCellValueFactory(new PropertyValueFactory<BookModel, String>("name_book"));
         category_book_colum.setCellValueFactory(new PropertyValueFactory<BookModel, String>("category_book"));
@@ -71,16 +74,16 @@ public class ControllerFragmentBooksDatabase {
         table_book.setItems(getListBook());
     }
 
-    private ObservableList<BookModel> getListBook(){
+    private ObservableList<BookModel> getListBook() {
         return FXCollections.observableArrayList(SQLiteConnector.getInstanceSQLiteConnector().getAllBook());
     }
 
-    private void filterData(){
+    private void filterData() {
         filterData = new FilteredList<>(getListBook(), model -> true);
 
-        tf_search.textProperty().addListener((observable, oldValue, newValue ) -> {
-            filterData.setPredicate(model ->{
-                if (newValue == null || newValue.isEmpty()){
+        tf_search.textProperty().addListener((observable, oldValue, newValue) -> {
+            filterData.setPredicate(model -> {
+                if (newValue == null || newValue.isEmpty()) {
                     return true;
                 }
 
@@ -88,15 +91,15 @@ public class ControllerFragmentBooksDatabase {
                 String lowerCaseFilter = newValue.toLowerCase();
 
                 //true  = match
-                if (model.getId_book().toLowerCase().contains(lowerCaseFilter)){
+                if (model.getId_book().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
-                }else if (model.getName_book().toLowerCase().contains(lowerCaseFilter)){
+                } else if (model.getName_book().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
-                }else if (model.getAuthor_book().toLowerCase().contains(lowerCaseFilter)){
+                } else if (model.getAuthor_book().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
-                }else if (model.getDate_add_book().toLowerCase().contains(lowerCaseFilter)){
+                } else if (model.getDate_add_book().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
-                }else if (model.getCategory_book().toLowerCase().contains(lowerCaseFilter)){
+                } else if (model.getCategory_book().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
                 }
 
@@ -107,5 +110,18 @@ public class ControllerFragmentBooksDatabase {
             sortedData.comparatorProperty().bind(table_book.comparatorProperty());
             table_book.setItems(sortedData);
         });
+    }
+
+    @FXML
+    void deleteBookWithID(ActionEvent event) {
+        BookModel modelItemSelected = table_book.getSelectionModel().getSelectedItem();
+
+        if (Algorithms.isBookOnRentBookList(SQLiteConnector.getInstanceSQLiteConnector().getAllRenterBook(), modelItemSelected.getId_book())) {
+            DialogWarning.createNewDialog("The book being rented can not be deleted.");
+        } else {
+            table_book.getItems().remove(modelItemSelected);
+            SQLiteConnector.getInstanceSQLiteConnector().deleteBookWithID(modelItemSelected.getId_book());
+            System.out.println(TAG + "- deleteBookWithID(): deleted book");
+        }
     }
 }
